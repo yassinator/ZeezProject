@@ -16,7 +16,7 @@ export class ContactComponent implements OnInit {
   page =0;
   size=8;
   totalPages:any;
-  pages: any;
+  pages : any;
   intTotalPages: number;
   currentPage=0;
   prenom:string;
