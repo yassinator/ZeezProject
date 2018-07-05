@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Hi Yassine</h1>
+<div mat-dialog-content>
+  <p>Vous-Voulez vraiment supprimer : {{data.nom}} {{data.prenom}} </p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="primary" (click)="onNoClick()" cdkFocusInitial>ANNULER</button>
+  <button mat-button  color="warn" (click)="supprimer()" >OUI</button>
+ 
+</div>

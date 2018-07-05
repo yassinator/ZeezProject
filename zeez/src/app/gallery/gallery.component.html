@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+
+</head>
+<body>
+ 
+
+
+		<div class="form-group mx-sm-3 mb-2">
+			<label for="inputPassword2" class="sr-only">Rechreche</label>
+			<div class="form-row">
+				<div class="col">
+					<input type="text" class="form-control" name="motcle" placeholder="Commentaire" [(ngModel)]="motcle">
+				</div>
+				<button class="btn btn-primary mb-2" (click)="onSerach()">Rechercher</button>
+			</div>
+		</div>
+
+		<div class="tz-gallery">
+		 
+        <div class="row">
+       
+            <div class="col-sm-6 col-md-4" *ngFor="let p of pagePhotos?.hits">
+                <div class="thumbnail">
+                    <a class="lightbox" href={{p.previewURL}}>
+                        <img src={{p.previewURL}} alt="Park">
+                    </a>
+                    <div class="caption">
+                        <h3>{{p.user}}</h3>
+                        <img class="img-circle" src={{p.userImageURL}} width="50px" height="50px"><p>{{p.tags}} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+
+<nav aria-label="Page navigation example">
+<ul class="pagination justify-content-center">
+<li class="page-item" [ngClass]="{'hidden': totalPages<1  , 'disabled' : currentPage==1 }"><a class="page-link" (click)="goToPage(currentPage-1)">Previous</a></li>
+  <li class="page-item" *ngFor="let p of pages; let i=index" [ngClass]="{'active':currentPage==(i+1)}"><a class="page-link"   (click)="goToPage(i)">{{i+1}}</a></li>
+ <li class="page-item" [ngClass]="{'hidden': totalPages<1 , 'disabled' : currentPage==intTotalPages}"><a class="page-link" (click)="goToPage(currentPage+1)" >Next</a></li>
+</ul>
+</nav>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
+</body>
+</html>
