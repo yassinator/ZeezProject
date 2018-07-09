@@ -22,7 +22,7 @@
 				<input 
 					matInput [matDatepicker]="picker"
 					[ngModel]="contact.dateDeNaissance | date:'yyyy-MM-dd'"
-					(ngModelChange)="dateDeNaissance = $event" name="dateDeNaissance">
+					(ngModelChange)="dateDeNaissance = $event" name="dateDeNaissance" >
 				<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 				<mat-datepicker #picker></mat-datepicker> </mat-form-field>
 			</div>
